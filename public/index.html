@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaBank Secure Access</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">JWT Banking Experience</p>
+        <h1>Secure banking access with a cleaner API and a real interface.</h1>
+        <p class="hero-text">
+          Register, sign in, and review your protected account from one service.
+          The backend now validates requests, returns consistent responses, and serves this frontend directly.
+        </p>
+        <div class="hero-points">
+          <span>Protected account route</span>
+          <span>JWT-based sessions</span>
+          <span>Polished single-page dashboard</span>
+        </div>
+      </div>
+      <div class="status-card glass">
+        <p class="status-label">Service Status</p>
+        <h2 id="healthStatus">Checking API</h2>
+        <p id="healthMessage">Connecting to backend health endpoint...</p>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel glass auth-panel">
+        <div class="tabs">
+          <button class="tab-button active" data-tab="login">Login</button>
+          <button class="tab-button" data-tab="register">Register</button>
+        </div>
+
+        <form id="loginForm" class="form active" data-form="login">
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="alex@novabank.com" required>
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" placeholder="Enter your password" required>
+          </label>
+          <button type="submit" class="primary-button">Access account</button>
+        </form>
+
+        <form id="registerForm" class="form" data-form="register">
+          <label>
+            <span>Full name</span>
+            <input type="text" name="name" placeholder="Alex Morgan" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="alex@novabank.com" required>
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" name="password" placeholder="Minimum 6 characters" minlength="6" required>
+          </label>
+          <button type="submit" class="primary-button">Create account</button>
+        </form>
+
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+      </section>
+
+      <section class="panel dashboard-panel">
+        <div class="dashboard-head">
+          <div>
+            <p class="eyebrow">Protected Dashboard</p>
+            <h2>Your banking snapshot</h2>
+          </div>
+          <button id="logoutButton" class="secondary-button">Log out</button>
+        </div>
+
+        <div id="accountEmpty" class="empty-state glass">
+          <h3>No active session</h3>
+          <p>Sign in or create an account to load protected account data from the API.</p>
+        </div>
+
+        <div id="accountCard" class="account-card glass hidden">
+          <div class="balance-block">
+            <p>Available balance</p>
+            <h3 id="accountBalance">₹0.00</h3>
+          </div>
+          <div class="account-grid">
+            <div>
+              <span>Name</span>
+              <strong id="accountName">-</strong>
+            </div>
+            <div>
+              <span>Email</span>
+              <strong id="accountEmail">-</strong>
+            </div>
+            <div>
+              <span>Account ID</span>
+              <strong id="accountId">-</strong>
+            </div>
+            <div>
+              <span>Member Since</span>
+              <strong id="accountCreatedAt">-</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
