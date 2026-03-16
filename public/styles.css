@@ -32,6 +32,26 @@ body {
   padding: 32px 0 48px;
 }
 
+.credit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 0 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.credit a {
+  color: #86efac;
+  text-decoration: none;
+}
+
+.credit a:hover {
+  text-decoration: underline;
+}
+
 .hero,
 .grid {
   display: grid;
@@ -288,5 +308,10 @@ input:focus {
 
   .hero h1 {
     max-width: none;
+  }
+
+  .credit {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
